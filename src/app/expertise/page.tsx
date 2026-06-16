@@ -22,10 +22,10 @@ const COMPETENCES = [
     tagline: 'Reliable demand analysis underpinning every investment decision.',
     description: [
       'Yuriy has developed and refined advanced traffic forecast models over more than two decades, applying mathematical solutions to identify the complex relationships between traffic drivers, economic indicators, airline strategy and competitive dynamics.',
-      'His approach identifies key demand determinants specific to each market — whether an emerging CIS hub, a privatising Brazilian airport or a concession candidate in West Africa — and builds transparent, defensible models that stand up to scrutiny by international financiers including the World Bank, EBRD and IFC.',
+      'His approach identifies key demand determinants specific to each market, whether an emerging CIS hub, a privatising Brazilian airport or a concession candidate in West Africa, and builds transparent, defensible models that stand up to scrutiny by international financiers including the World Bank, EBRD and IFC.',
       'Services include short-, medium- and long-term passenger and cargo demand forecasts; peak-hour and seasonal traffic analysis; scenario modelling under different economic and regulatory assumptions; and independent second-opinion reviews of existing forecasts.',
     ],
-    examples: ['IFC — Philippines Airports (Part A & B)', 'Tashkent New Gateway Hub (IFC)', 'Nantes Atlantique Airport', 'Cape Winelands Airport', 'Frankfurt-Hahn Airport'],
+    examples: ['IFC: Philippines Airports (Part A & B)', 'Tashkent New Gateway Hub (IFC)', 'Nantes Atlantique Airport', 'Cape Winelands Airport', 'Frankfurt-Hahn Airport'],
     image: departuresBoard,
     imageAlt: 'Airport departures board showing global destinations',
   },
@@ -35,7 +35,7 @@ const COMPETENCES = [
     tagline: 'Holistic infrastructure roadmaps aligned to realistic demand.',
     description: [
       'A robust master plan is the foundation of any major airport investment. Yuriy has led or contributed to master plans for airports ranging from small regional facilities to major international hubs, spanning timeframes of 20–40 years.',
-      'Each master plan integrates traffic forecasts, capacity analysis, phased infrastructure requirements, landside access, commercial development and regulatory compliance — delivering a coherent, implementable roadmap rather than an academic exercise.',
+      'Each master plan integrates traffic forecasts, capacity analysis, phased infrastructure requirements, landside access, commercial development and regulatory compliance, delivering a coherent, implementable roadmap rather than an academic exercise.',
       'Experience includes World Bank–standard master plans, IFC pre-investment feasibility frameworks, and independent master plan updates and reviews for airports across Eastern Europe, Russia and the CIS.',
     ],
     examples: ['Atyrau International Airport, Kazakhstan', 'Ufa International Airport, Russia', 'Boryspil International Airport, Ukraine', 'Kyiv "Zhulyany" Airport', 'Vnukovo International Airport'],
@@ -47,11 +47,11 @@ const COMPETENCES = [
     title: 'Feasibility Studies',
     tagline: 'Rigorous analysis from concept through investment decision.',
     description: [
-      'Yuriy has led full feasibility and pre-feasibility studies for airport terminals, runways, FBO facilities, cargo operations, MRO businesses and airport city concepts — across single-asset and multi-airport programmes.',
+      'Yuriy has led full feasibility and pre-feasibility studies for airport terminals, runways, FBO facilities, cargo operations, MRO businesses and airport city concepts, across single-asset and multi-airport programmes.',
       'Studies are structured to meet international lender requirements (World Bank, EBRD, IFC) and private investor expectations, combining demand analysis, infrastructure costing, financial modelling, risk assessment and implementation scheduling.',
       'Expertise spans new terminal feasibility (including Boryspil\'s award-winning Terminal D concept), ground handling restructuring studies, hotel operator searches and airport city masterplans.',
     ],
-    examples: ['Tallinn Airport — Passenger Terminal & Apron Feasibility', 'Boryspil Terminal D — Pre-feasibility', 'Boryspil FBO Business Pre-feasibility', '"Zhulyany" MRO Market Survey', 'Tököl Airport Pre-feasibility (Hungary)'],
+    examples: ['Tallinn Airport: Passenger Terminal & Apron Feasibility', 'Boryspil Terminal D: Pre-feasibility', 'Boryspil FBO Business Pre-feasibility', '"Zhulyany" MRO Market Survey', 'Tököl Airport Pre-feasibility (Hungary)'],
     image: aerialGate,
     imageAlt: 'Aerial close-up of aircraft docked at terminal gate',
   },
@@ -60,11 +60,11 @@ const COMPETENCES = [
     title: 'Capacity Calculation',
     tagline: 'Identifying constraints before they become crises.',
     description: [
-      'Capacity analysis translates traffic forecasts into actionable infrastructure triggers — determining precisely when and how terminals, aprons, runways and landside facilities reach their limits under different growth scenarios.',
+      'Capacity analysis translates traffic forecasts into actionable infrastructure triggers, determining precisely when and how terminals, aprons, runways and landside facilities reach their limits under different growth scenarios.',
       'Yuriy applies IATA methodology and proprietary modelling frameworks to assess throughput capacity for existing assets, identify bottlenecks, and define the timing and sizing of capacity expansions.',
-      'Peak-hour analysis — critical for bid preparation and concession negotiations — has been a recurring deliverable across French, African and Asian airport engagements.',
+      'Peak-hour analysis, critical for bid preparation and concession negotiations, has been a recurring deliverable across French, African and Asian airport engagements.',
     ],
-    examples: ['Nantes Atlantique — Peak Hour Analysis', 'Boryspil — Terminal Capacity Studies', 'Tallinn — Apron Capacity Feasibility', 'Multiple CIS airports — Runway & Terminal Capacity'],
+    examples: ['Nantes Atlantique: Peak Hour Analysis', 'Boryspil: Terminal Capacity Studies', 'Tallinn: Apron Capacity Feasibility', 'Multiple CIS airports: Runway & Terminal Capacity'],
     image: null,
     imageAlt: '',
   },
@@ -75,9 +75,9 @@ const COMPETENCES = [
     description: [
       'Strategic development engagements help airports understand where they sit in the competitive landscape and define a clear, actionable path to sustainable growth. Yuriy has delivered strategic development concepts for airports from small regional facilities to major international hubs.',
       'Work encompasses competitive market analysis, catchment area studies, airline attraction strategies, commercial revenue development, privatisation positioning and Board-level advisory.',
-      'Clients include airport operators, national governments, private equity investors and development finance institutions — all requiring strategic clarity backed by rigorous analysis.',
+      'Clients include airport operators, national governments, private equity investors and development finance institutions, all requiring strategic clarity backed by rigorous analysis.',
     ],
-    examples: ['Pulkovo Airport Growth Strategy', 'Odesa Airport — Airport City Concept', 'Sofia Airport — Business Plan & Strategic Updates', 'Multiple Ukraine airports — Strategic Positioning', 'Basel Aero Group (Russia)'],
+    examples: ['Pulkovo Airport Growth Strategy', 'Odesa Airport: Airport City Concept', 'Sofia Airport: Business Plan & Strategic Updates', 'Multiple Ukraine airports: Strategic Positioning', 'Basel Aero Group (Russia)'],
     image: null,
     imageAlt: '',
   },
@@ -86,11 +86,11 @@ const COMPETENCES = [
     title: 'Project & Programme Management',
     tagline: 'Delivering complex aviation projects on time and on budget.',
     description: [
-      'Yuriy has managed and co-managed airport consulting projects of all sizes — from rapid two-week expert reviews through multi-year, multi-airport programme management mandates. He has acted as Project Manager, Deputy Project Manager and Lead Expert across more than 60 engagements.',
+      'Yuriy has managed and co-managed airport consulting projects of all sizes, from rapid two-week expert reviews through multi-year, multi-airport programme management mandates. He has acted as Project Manager, Deputy Project Manager and Lead Expert across more than 60 engagements.',
       'Experience covers the full project lifecycle: scope definition, proposal and bid preparation, team leadership, client interface, quality assurance, reporting and knowledge transfer.',
       'Particularly strong track record in managing projects for international financial institutions (IFC, World Bank, EBRD) where rigorous documentation, procurement compliance and multi-stakeholder coordination are essential.',
     ],
-    examples: ['IFC Philippines Airports Programme (Part A & B)', 'Tashkent New Gateway Hub — IFC Assignment', 'Atyrau Master Plan — Programme Management', 'Ukraine 2020 Airport Development Programme'],
+    examples: ['IFC Philippines Airports Programme (Part A & B)', 'Tashkent New Gateway Hub: IFC Assignment', 'Atyrau Master Plan: Programme Management', 'Ukraine 2020 Airport Development Programme'],
     image: null,
     imageAlt: '',
   },
@@ -99,10 +99,10 @@ const COMPETENCES = [
     title: 'Airline Marketing & Route Development',
     tagline: 'Connecting airports with the airlines that can grow their networks.',
     description: [
-      'Growing passenger numbers requires more than infrastructure — it requires attracting the right airlines and the right routes. Yuriy has delivered airline marketing strategies, target route analyses and incentive framework designs for airports seeking to expand their network.',
+      'Growing passenger numbers requires more than infrastructure; it requires attracting the right airlines and the right routes. Yuriy has delivered airline marketing strategies, target route analyses and incentive framework designs for airports seeking to expand their network.',
       'Work includes airline traffic study analysis (TSA), competitive positioning versus other catchment area airports, identification of underserved origin-destination pairs and structured outreach frameworks for airline negotiations.',
     ],
-    examples: ['Kharkiv International Airport — Airline Marketing', 'Yaroslavl "Tunoshna" — Airline Marketing (TSA)', 'Kruger Mpumalanga International Airport — Marketing & Sales Strategy', 'Basel Aero Airports — Business Plan'],
+    examples: ['Kharkiv International Airport: Airline Marketing', 'Yaroslavl "Tunoshna": Airline Marketing (TSA)', 'Kruger Mpumalanga International Airport: Marketing & Sales Strategy', 'Basel Aero Airports: Business Plan'],
     image: null,
     imageAlt: '',
   },
@@ -112,10 +112,10 @@ const COMPETENCES = [
     tagline: 'Rooted in eight years of First Grade Air Traffic Control.',
     description: [
       'Yuriy\'s eight years as a First Grade Air Traffic Controller (Approach Control and Tower) at Kharkiv International Airport give him a uniquely operational perspective on airspace structure, coordination procedures and ATC capacity.',
-      'This background enables genuine expert engagement on airspace design, civil-military coordination, procedure development and operational capacity assessments — going well beyond the theoretical knowledge of a desk-only consultant.',
+      'This background enables genuine expert engagement on airspace design, civil-military coordination, procedure development and operational capacity assessments, going well beyond the theoretical knowledge of a desk-only consultant.',
       'Experience covers airspace analysis within airport development studies and standalone airspace coordination engagements at both civil and military aerodromes.',
     ],
-    examples: ['Vaziani Aerodrome — Airspace & IFP Design', 'Multiple CIS Airport Studies — Airspace Components', 'UkSATSE — 8 years operational ATC (Kharkiv)'],
+    examples: ['Vaziani Aerodrome: Airspace & IFP Design', 'Multiple CIS Airport Studies: Airspace Components', 'UkSATSE: 8 years operational ATC (Kharkiv)'],
     image: null,
     imageAlt: '',
   },
@@ -127,7 +127,7 @@ const COMPETENCES = [
       'Instrument Flight Procedure (IFP) design requires a rare combination of regulatory knowledge (ICAO PANS-OPS), aeronautical expertise and practical operational understanding. Yuriy has led IFP design and airspace structure projects for civil and military aerodromes.',
       'Deliverables include approach, departure and en-route procedure design; airspace classification and structure proposals; coordination with civil aviation authorities; and implementation support documentation.',
     ],
-    examples: ['Vaziani Aerodrome (Georgia) — IFP Design & Airspace for Sakaeronavigatsia', 'Natakhtari Aerodrome (Georgia) — Infrastructure & Airspace Assessment'],
+    examples: ['Vaziani Aerodrome (Georgia): IFP Design & Airspace for Sakaeronavigatsia', 'Natakhtari Aerodrome (Georgia): Infrastructure & Airspace Assessment'],
     image: null,
     imageAlt: '',
   },
@@ -161,7 +161,7 @@ export default function ExpertisePage() {
               Areas of Expertise
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-white/70 sm:text-base">
-              Nine specialised competences spanning the full spectrum of airport consulting —
+              Nine specialised competences spanning the full spectrum of airport consulting,
               from first operational principles through to board-level strategic advisory.
             </p>
           </ScrollReveal>

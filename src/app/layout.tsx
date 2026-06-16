@@ -17,10 +17,10 @@ export const metadata: Metadata = {
   title: {
     template: '%s — Rubanov Airport Consulting',
     default:
-      'Rubanov Airport Consulting — Independent Airport Consultant | Vienna',
+      'Rubanov Airport Consulting | Independent Airport Consultant | Vienna',
   },
   description:
-    'Yuriy Rubanov — Independent Airport Consultant with 36 years of experience in traffic forecasting, master planning, feasibility studies and strategic airport development across 25+ countries.',
+    'Yuriy Rubanov, Independent Airport Consultant with 36 years of experience in traffic forecasting, master planning, feasibility studies and strategic airport development across 25+ countries.',
   keywords: [
     'airport consultant',
     'airport consulting',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Rubanov Airport Consulting',
     description:
-      '36 years of airport consulting expertise — traffic forecasting, master planning, feasibility studies across 25+ countries.',
+      '36 years of airport consulting expertise: traffic forecasting, master planning, feasibility studies across 25+ countries.',
     url: 'https://rubanov.com',
     siteName: 'Rubanov Airport Consulting',
     locale: 'en_US',

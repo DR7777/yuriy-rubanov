@@ -36,7 +36,7 @@ const COMPETENCES = [
     title: 'Feasibility Studies',
     subtitle: 'From concept to investment decision.',
     description:
-      'Rigorous pre-feasibility and full feasibility assessments for terminals, runways, commercial facilities and airport city concepts — meeting World Bank / EBRD standards.',
+      'Rigorous pre-feasibility and full feasibility assessments for terminals, runways, commercial facilities and airport city concepts, meeting World Bank / EBRD standards.',
     featured: false,
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" className="h-7 w-7">
@@ -63,7 +63,7 @@ const COMPETENCES = [
     title: 'Strategic Development',
     subtitle: 'Market positioning for airports at every scale.',
     description:
-      'Competitive landscape analysis and long-term strategic roadmaps for airport operators, governments and private investors — delivering clarity backed by rigorous market intelligence.',
+      'Competitive landscape analysis and long-term strategic roadmaps for airport operators, governments and private investors, delivering clarity backed by rigorous market intelligence.',
     featured: false,
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" className="h-7 w-7">
@@ -76,7 +76,7 @@ const COMPETENCES = [
     title: 'Project Management',
     subtitle: 'Complex multi-stakeholder programmes, delivered.',
     description:
-      'End-to-end project and programme management — from tender stage through final report delivery — for international financial institutions and private investors alike.',
+      'End-to-end project and programme management, from tender stage through final report delivery, for international financial institutions and private investors alike.',
     featured: false,
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" className="h-7 w-7">
@@ -104,7 +104,7 @@ const COMPETENCES = [
     title: 'Airspace Coordination',
     subtitle: 'Rooted in 8 years of First Grade ATC.',
     description:
-      'Civil and military airspace structure analysis, coordination and optimisation — informed by genuine operational expertise as a First Grade Air Traffic Controller.',
+      'Civil and military airspace structure analysis, coordination and optimisation, informed by genuine operational expertise as a First Grade Air Traffic Controller.',
     featured: false,
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round" className="h-7 w-7">
@@ -376,7 +376,7 @@ export function ExpertiseSection() {
           </h2>
           <p className="mt-4 text-base leading-relaxed text-zinc-500">
             From first operational principles as an Air Traffic Controller to senior
-            strategic advisory — every engagement draws on the full depth of the aviation stack.
+            strategic advisory. Every engagement draws on the full depth of the aviation stack.
           </p>
         </ScrollReveal>
 

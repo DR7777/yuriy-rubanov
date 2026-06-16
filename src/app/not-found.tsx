@@ -52,7 +52,7 @@ export default function NotFound() {
             Wrong Runway
           </h1>
           <p className="mt-2 text-sm text-white/65 sm:text-base">
-            This page doesn&rsquo;t exist — but we can get you back on course.
+            This page doesn&rsquo;t exist, but we can get you back on course.
           </p>
         </div>
 

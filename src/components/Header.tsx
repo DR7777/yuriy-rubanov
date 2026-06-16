@@ -21,7 +21,7 @@ function RacLogo({ transparent }: { transparent: boolean }) {
   return (
     <Link
       href="/"
-      aria-label="Rubanov Airport Consulting — Home"
+      aria-label="Rubanov Airport Consulting"
       className="group flex flex-shrink-0 items-center gap-3"
     >
       <div

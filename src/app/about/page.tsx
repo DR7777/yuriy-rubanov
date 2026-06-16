@@ -10,7 +10,7 @@ import headerImage from '@/images/photos/aircraft-ascending-sunset.jpg'
 export const metadata: Metadata = {
   title: 'About Yuriy Rubanov',
   description:
-    'Learn about Yuriy Rubanov — 36 years of aviation expertise spanning Air Traffic Control, international shipping management and 25+ years of senior airport consulting at Airport Competence GmbH.',
+    'Learn about Yuriy Rubanov: 36 years of aviation expertise spanning Air Traffic Control, international shipping management and 25+ years of senior airport consulting at Airport Competence GmbH.',
 }
 
 // ─── Education & Skills data ──────────────────────────────────────────────────
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 const EDUCATION = [
   {
     degree: 'Engineer Diploma with Honour',
-    field: 'Operation of Air Transport — Air Traffic Controller',
+    field: 'Operation of Air Transport, Air Traffic Controller',
     institution: 'St. Petersburg University of Civil Aviation',
     location: 'St. Petersburg, Russia',
     period: '1982 – 1986',
@@ -110,8 +110,8 @@ export default function AboutPage() {
             <ScrollReveal delay="0.1s" className="space-y-5 text-sm leading-relaxed text-zinc-600">
               <p>
                 Yuriy Rubanov is a seasoned aviation and transport expert with over 36 years
-                of experience, specialising in the ex-USSR and CIS markets — particularly
-                Ukraine, Russia, Kazakhstan and Georgia — while maintaining an extensive
+                of experience, specialising in the ex-USSR and CIS markets, particularly
+                Ukraine, Russia, Kazakhstan and Georgia, while maintaining an extensive
                 global track record across four continents.
               </p>
               <p>
@@ -124,14 +124,14 @@ export default function AboutPage() {
               <p>
                 Following his ATC career, Yuriy transitioned to international management with
                 Azov Shipping Company, serving as Managing Director of Azov Shipping Holding GmbH
-                in Vienna — overseeing strategic operations, subsidiary supervision and international
+                in Vienna, overseeing strategic operations, subsidiary supervision and international
                 business development.
               </p>
               <p>
                 In 2000, he joined Airport Consulting Vienna GmbH (now Airport Competence GmbH),
                 where he spent 25 years as Manager Central & Eastern Europe. During this time,
                 he collaborated on numerous high-profile projects for the World Bank, EBRD, IFC
-                and TACIS — delivering traffic forecasts, master plans, feasibility studies and
+                and TACIS, delivering traffic forecasts, master plans, feasibility studies and
                 strategic development concepts for airports across 25+ countries.
               </p>
               <p>
@@ -142,7 +142,7 @@ export default function AboutPage() {
                 financial institutions and private investors.
               </p>
               <p>
-                In 2025, Yuriy launched <strong className="text-zinc-800">Rubanov Airport Consulting</strong> — bringing
+                In 2025, Yuriy launched <strong className="text-zinc-800">Rubanov Airport Consulting</strong>, bringing
                 the same rigour, depth and global network to independent project-based
                 engagements, expert review mandates and long-term advisory roles.
               </p>
@@ -175,7 +175,7 @@ export default function AboutPage() {
             >
               <Image
                 src={portraitImage}
-                alt="Yuriy Rubanov — Independent Airport Consultant"
+                alt="Yuriy Rubanov, Independent Airport Consultant"
                 className="w-full object-cover"
                 sizes="(max-width: 1024px) 80vw, 340px"
               />

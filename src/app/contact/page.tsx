@@ -8,7 +8,7 @@ import loungeImage from '@/images/photos/airport-gate-lounge-lufthansa.jpg'
 export const metadata: Metadata = {
   title: 'Contact',
   description:
-    'Get in touch with Yuriy Rubanov — Independent Airport Consultant based in Vienna. Available for traffic forecasting, master planning, feasibility studies and strategic advisory engagements worldwide.',
+    'Get in touch with Yuriy Rubanov, Independent Airport Consultant based in Vienna. Available for traffic forecasting, master planning, feasibility studies and strategic advisory engagements worldwide.',
 }
 
 // ─── Contact info blocks ──────────────────────────────────────────────────────

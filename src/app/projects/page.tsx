@@ -9,7 +9,7 @@ import headerImage from '@/images/photos/aircraft-on-taxiway.jpg'
 export const metadata: Metadata = {
   title: 'Projects',
   description:
-    'Full project portfolio of Yuriy Rubanov — 60+ airport consulting engagements across 25+ countries spanning traffic forecasting, master planning, feasibility studies and strategic development.',
+    'Full project portfolio of Yuriy Rubanov: 60+ airport consulting engagements across 25+ countries spanning traffic forecasting, master planning, feasibility studies and strategic development.',
 }
 
 // ── Region config ─────────────────────────────────────────────────────────────

@@ -85,7 +85,7 @@ export const projects: Project[] = [
   },
   {
     id: 'cape-winelands-2024',
-    title: 'Air Traffic Forecast — Review & Second Opinion',
+    title: 'Air Traffic Forecast: Review & Second Opinion',
     airport: 'Cape Winelands Airport',
     location: 'Cape Winelands',
     country: 'South Africa',
@@ -110,7 +110,7 @@ export const projects: Project[] = [
   },
   {
     id: 'natakhtari-2024',
-    title: 'Technical Assessment — Transport Junction & Infrastructure',
+    title: 'Technical Assessment: Transport Junction & Infrastructure',
     airport: 'Natakhtari Aerodrome Area',
     location: 'Natakhtari',
     country: 'Georgia',
@@ -370,7 +370,7 @@ export const projects: Project[] = [
   },
   {
     id: 'tallinn-feasibility-2018',
-    title: 'Feasibility Study — Passenger Terminal & Apron Areas',
+    title: 'Feasibility Study: Passenger Terminal & Apron Areas',
     airport: 'Tallinn Airport',
     location: 'Tallinn',
     country: 'Estonia',
@@ -444,7 +444,7 @@ export const projects: Project[] = [
   // ── 2017 ────────────────────────────────────────────────────────────────────
   {
     id: 'fortaleza-2016',
-    title: 'Technical Advisory Services — 3rd Privatisation Round',
+    title: 'Technical Advisory Services: 3rd Privatisation Round',
     airport: 'Fortaleza International Airport',
     location: 'Fortaleza',
     country: 'Brazil',
@@ -456,7 +456,7 @@ export const projects: Project[] = [
   },
   {
     id: 'salvador-2016',
-    title: 'Technical Advisory Services — 3rd Privatisation Round',
+    title: 'Technical Advisory Services: 3rd Privatisation Round',
     airport: 'Salvador Bahia Airport',
     location: 'Salvador',
     country: 'Brazil',
@@ -481,7 +481,7 @@ export const projects: Project[] = [
   // ── 2016 ────────────────────────────────────────────────────────────────────
   {
     id: 'moldovan-airports-2015',
-    title: 'Strategic Development — Study of Moldovan Airports',
+    title: 'Strategic Development: Study of Moldovan Airports',
     airport: 'Multiple airports',
     location: 'Moldova',
     country: 'Moldova',
@@ -556,7 +556,7 @@ export const projects: Project[] = [
   },
   {
     id: 'yaroslavl-airline-marketing-2011',
-    title: 'TSA — Airline Marketing',
+    title: 'TSA: Airline Marketing',
     airport: 'Yaroslavl "Tunoshna" International Airport',
     location: 'Yaroslavl',
     country: 'Russia',
@@ -725,7 +725,7 @@ export const projects: Project[] = [
   },
   {
     id: 'kruger-mpumalanga-2004',
-    title: 'Traffic Growth — Marketing & Sales Strategy',
+    title: 'Traffic Growth: Marketing & Sales Strategy',
     airport: 'Kruger Mpumalanga International Airport',
     location: 'Mbombela',
     country: 'South Africa',

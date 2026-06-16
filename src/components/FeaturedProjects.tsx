@@ -22,8 +22,7 @@ export function FeaturedProjects() {
             Featured Projects
           </h2>
           <p className="mt-2 max-w-lg text-sm leading-relaxed text-zinc-500">
-            A selection of recent high-profile engagements across four continents —
-            from IFC-mandated traffic forecasts to national master plans.
+            A selection of recent high-profile engagements across four continents, from IFC-mandated traffic forecasts to national master plans.
           </p>
         </div>
         <Link

@@ -29,7 +29,7 @@ export function Hero() {
     <section
       // -mt-24 cancels the header spacer → true full-bleed from page top
       className="relative -mt-24 flex min-h-screen items-center justify-center overflow-hidden"
-      aria-label="Rubanov Airport Consulting — hero"
+      aria-label="Rubanov Airport Consulting hero section"
     >
       {/* ── Background image with Ken Burns zoom ──────────────────────────── */}
       <div className="absolute inset-0">
@@ -151,7 +151,7 @@ export function Hero() {
             textShadow: '0 1px 12px rgba(0,0,0,0.9)',
           }}
         >
-          36 years of aviation expertise — traffic forecasting, master planning
+          36 years of aviation expertise in traffic forecasting, master planning
           and strategic airport development across{' '}
           <span style={{ color: '#D4AF37' }}>25+ countries</span>.
         </p>

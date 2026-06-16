@@ -80,7 +80,7 @@ export function CTAStrip() {
 
           <p className="mx-auto mt-5 max-w-xl text-sm leading-relaxed text-white/70 sm:text-base">
             Whether you need a traffic forecast, a master plan review or strategic
-            advisory — Yuriy brings 36 years of hands-on aviation expertise to your
+            advisory, Yuriy brings 36 years of hands-on aviation expertise to your
             project. Available for worldwide engagements.
           </p>
 
