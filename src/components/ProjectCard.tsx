@@ -1,14 +1,16 @@
-// ─── ProjectCard — reusable card for the /projects listing ───────────────────
+'use client'
 
 import { type Project } from '@/lib/projects'
 
-const REGION_STYLES: Record<string, { bg: string; text: string }> = {
-  'CIS & Eastern Europe': { bg: 'bg-blue-50',    text: 'text-blue-700' },
-  'Western Europe':       { bg: 'bg-sky-50',     text: 'text-sky-700' },
-  'Africa':               { bg: 'bg-amber-50',   text: 'text-amber-700' },
-  'Asia & Pacific':       { bg: 'bg-emerald-50', text: 'text-emerald-700' },
-  'Middle East':          { bg: 'bg-orange-50',  text: 'text-orange-700' },
-  'Americas':             { bg: 'bg-purple-50',  text: 'text-purple-700' },
+// ─── Country code → ISO 2-letter abbreviation ─────────────────────────────────
+
+const COUNTRY_CODE: Record<string, string> = {
+  Kazakhstan: 'KZ', Philippines: 'PH', Uzbekistan: 'UZ', France: 'FR',
+  'The Gambia': 'GM', Germany: 'DE', Ukraine: 'UA', Russia: 'RU',
+  Georgia: 'GE', Bulgaria: 'BG', Estonia: 'EE', Brazil: 'BR',
+  Oman: 'OM', Nigeria: 'NG', 'South Africa': 'ZA', Montenegro: 'ME',
+  Croatia: 'HR', Hungary: 'HU', Mexico: 'MX', Tajikistan: 'TJ',
+  Moldova: 'MD', Romania: 'RO',
 }
 
 const COUNTRY_FLAGS: Record<string, string> = {
@@ -20,47 +22,121 @@ const COUNTRY_FLAGS: Record<string, string> = {
   Moldova: '🇲🇩', Romania: '🇷🇴',
 }
 
+// Role → short label
+function shortRole(role: string) {
+  const r = role.split(',')[0].trim()
+  if (r.includes('Project Manager')) return 'Project Manager'
+  if (r.includes('Deputy')) return 'Deputy PM'
+  if (r.includes('Traffic Forecast')) return 'Traffic Expert'
+  if (r.includes('Market')) return 'Market Expert'
+  if (r.includes('Strategy')) return 'Strategy Expert'
+  return r
+}
+
+// ─── Card ─────────────────────────────────────────────────────────────────────
+
 export function ProjectCard({ project }: { project: Project }) {
-  const regionStyle =
-    REGION_STYLES[project.region] ?? { bg: 'bg-zinc-50', text: 'text-zinc-600' }
+  const code = COUNTRY_CODE[project.country] ?? project.country.slice(0, 2).toUpperCase()
   const flag = COUNTRY_FLAGS[project.country] ?? '🌍'
 
   return (
-    <div className="flex flex-col gap-3 rounded-xl bg-white p-5 shadow-[0_2px_12px_-4px_rgba(0,0,0,0.07)] ring-1 ring-zinc-900/5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_6px_24px_-6px_rgba(11,30,61,0.12)]">
-      {/* Top row */}
-      <div className="flex items-start justify-between gap-2">
-        <span className="text-xl leading-none" role="img" aria-label={project.country}>
-          {flag}
-        </span>
+    <article
+      className="group flex flex-col overflow-hidden rounded-2xl transition-all duration-300 hover:-translate-y-1.5"
+      style={{
+        boxShadow: '0 2px 16px -4px rgba(11,30,61,0.12)',
+      }}
+      onMouseEnter={(e) => {
+        ;(e.currentTarget as HTMLElement).style.boxShadow =
+          '0 20px 48px -8px rgba(11,30,61,0.26)'
+      }}
+      onMouseLeave={(e) => {
+        ;(e.currentTarget as HTMLElement).style.boxShadow =
+          '0 2px 16px -4px rgba(11,30,61,0.12)'
+      }}
+    >
+      {/* ── Navy header ──────────────────────────────────────────────────── */}
+      <div
+        className="relative overflow-hidden px-5 py-4"
+        style={{ background: 'linear-gradient(135deg, #0B1E3D 0%, #1a3666 100%)' }}
+      >
+        {/* Ghost country code watermark */}
         <span
-          className={`shrink-0 rounded-full px-2 py-0.5 text-[10px] font-medium ${regionStyle.bg} ${regionStyle.text}`}
+          aria-hidden="true"
+          className="pointer-events-none absolute -right-2 -top-1 select-none font-black leading-none tracking-tighter text-white/[0.07]"
+          style={{ fontSize: '72px' }}
         >
-          {project.region}
+          {code}
         </span>
+
+        {/* Top row: flag + year */}
+        <div className="flex items-start justify-between">
+          <div className="flex flex-col gap-1">
+            <span className="text-2xl leading-none" role="img" aria-label={project.country}>
+              {flag}
+            </span>
+            <p className="mt-1 text-[10px] font-semibold tracking-[0.18em] uppercase text-white/45">
+              {project.location}
+            </p>
+          </div>
+          <div className="text-right">
+            <span
+              className="text-2xl font-black tabular-nums leading-none"
+              style={{ color: 'rgba(201,168,76,0.22)' }}
+            >
+              {project.year}
+            </span>
+            <p className="mt-1 text-[9px] font-semibold tracking-[0.14em] uppercase text-white/30">
+              {project.country}
+            </p>
+          </div>
+        </div>
+
+        {/* Gold accent line */}
+        <div
+          className="mt-4 h-px w-8 transition-all duration-500 group-hover:w-full"
+          style={{ background: 'linear-gradient(90deg, #C9A84C, #D4AF37)' }}
+        />
       </div>
 
-      {/* Content */}
-      <div className="flex-1">
-        <p className="text-[10px] font-semibold tracking-wide text-zinc-400 uppercase">
-          {project.location}, {project.country} · {project.year}
-        </p>
-        <h3 className="mt-1 text-sm font-semibold leading-snug text-zinc-900">
-          {project.airport}
-        </h3>
-        <p className="mt-1 text-xs font-medium text-zinc-500">{project.title}</p>
-      </div>
+      {/* ── White body ───────────────────────────────────────────────────── */}
+      <div className="flex flex-1 flex-col gap-3 bg-white px-5 py-4">
+        {/* Airport name */}
+        <div className="flex-1">
+          <h3 className="text-sm font-bold leading-snug text-zinc-900">
+            {project.airport}
+          </h3>
+          <p className="mt-2 text-xs leading-relaxed text-zinc-500">
+            {project.title}
+          </p>
+        </div>
 
-      {/* Role badge */}
-      <div className="flex flex-wrap items-center gap-1.5 border-t border-zinc-100 pt-3">
-        <span className="rounded-md bg-zinc-50 px-2 py-0.5 text-[10px] font-medium text-zinc-600 ring-1 ring-zinc-200">
-          {project.role.split(',')[0]}
-        </span>
-        {project.client && (
-          <span className="rounded-md bg-amber-50 px-2 py-0.5 text-[10px] font-medium text-amber-700 ring-1 ring-amber-200">
-            {project.client}
-          </span>
-        )}
+        {/* Footer: period + role */}
+        <div className="flex flex-wrap items-center justify-between gap-2 border-t border-zinc-100 pt-3">
+          <span className="text-[10px] text-zinc-400">{project.period}</span>
+          <div className="flex flex-wrap gap-1.5">
+            <span
+              className="rounded-md px-2 py-0.5 text-[10px] font-semibold"
+              style={{
+                background: 'rgba(11,30,61,0.07)',
+                color: '#0B1E3D',
+              }}
+            >
+              {shortRole(project.role)}
+            </span>
+            {project.client && (
+              <span
+                className="rounded-md px-2 py-0.5 text-[10px] font-semibold"
+                style={{
+                  background: 'rgba(201,168,76,0.12)',
+                  color: '#92700a',
+                }}
+              >
+                {project.client}
+              </span>
+            )}
+          </div>
+        </div>
       </div>
-    </div>
+    </article>
   )
 }
