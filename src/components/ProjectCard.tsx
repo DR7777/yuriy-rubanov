@@ -27,7 +27,13 @@ function shortRole(role: string) {
 
 // ─── Card ─────────────────────────────────────────────────────────────────────
 
-export function ProjectCard({ project }: { project: Project }) {
+export function ProjectCard({
+  project,
+  showScope = false,
+}: {
+  project: Project
+  showScope?: boolean
+}) {
   const code = COUNTRY_CODE[project.country] ?? project.country.slice(0, 2).toUpperCase()
 
   return (
@@ -89,9 +95,15 @@ export function ProjectCard({ project }: { project: Project }) {
           <h3 className="text-sm font-bold leading-snug text-zinc-900">
             {project.airport}
           </h3>
-          <p className="mt-2 text-xs leading-relaxed text-zinc-500">
-            {project.title}
-          </p>
+          {showScope ? (
+            <p className="mt-2 text-sm leading-relaxed text-zinc-500">
+              {project.scope}
+            </p>
+          ) : (
+            <p className="mt-1.5 text-xs font-medium text-zinc-400">
+              {project.title}
+            </p>
+          )}
         </div>
 
         {/* Footer: period + role badges */}

@@ -1,110 +1,15 @@
 import Link from 'next/link'
 import { featuredProjects } from '@/lib/projects'
 import { ScrollReveal } from '@/components/ScrollReveal'
+import { ProjectCard } from '@/components/ProjectCard'
 
-// ─── Region colour map ────────────────────────────────────────────────────────
-
-const REGION_STYLES: Record<string, { bg: string; text: string }> = {
-  'CIS & Eastern Europe': { bg: 'bg-blue-50', text: 'text-blue-700' },
-  'Western Europe':       { bg: 'bg-sky-50',  text: 'text-sky-700' },
-  'Africa':               { bg: 'bg-amber-50', text: 'text-amber-700' },
-  'Asia & Pacific':       { bg: 'bg-emerald-50', text: 'text-emerald-700' },
-  'Middle East':          { bg: 'bg-orange-50', text: 'text-orange-700' },
-  'Americas':             { bg: 'bg-purple-50', text: 'text-purple-700' },
-}
-
-// ─── Country flags (emoji) ────────────────────────────────────────────────────
-
-const COUNTRY_FLAGS: Record<string, string> = {
-  Kazakhstan: '🇰🇿',
-  Philippines: '🇵🇭',
-  Uzbekistan: '🇺🇿',
-  France: '🇫🇷',
-  'The Gambia': '🇬🇲',
-  Germany: '🇩🇪',
-  Ukraine: '🇺🇦',
-  Russia: '🇷🇺',
-  Georgia: '🇬🇪',
-  Bulgaria: '🇧🇬',
-  Estonia: '🇪🇪',
-  Brazil: '🇧🇷',
-  Oman: '🇴🇲',
-  Nigeria: '🇳🇬',
-  'South Africa': '🇿🇦',
-  Montenegro: '🇲🇪',
-  Croatia: '🇭🇷',
-  Hungary: '🇭🇺',
-  Mexico: '🇲🇽',
-  Tajikistan: '🇹🇯',
-  Moldova: '🇲🇩',
-  Romania: '🇷🇴',
-}
-
-// ─── Single project card ──────────────────────────────────────────────────────
-
-function ProjectCard({
-  project,
-  index,
-}: {
-  project: (typeof featuredProjects)[number]
-  index: number
-}) {
-  const regionStyle = REGION_STYLES[project.region] ?? { bg: 'bg-zinc-50', text: 'text-zinc-600' }
-  const flag = COUNTRY_FLAGS[project.country] ?? '🌍'
-  const delay = `${index * 0.1}s`
-
-  return (
-    <ScrollReveal
-      delay={delay}
-      className="group flex flex-col gap-4 rounded-2xl bg-white p-6 shadow-[0_2px_16px_-4px_rgba(0,0,0,0.07)] ring-1 ring-zinc-900/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_12px_40px_-8px_rgba(11,30,61,0.14)]"
-    >
-      {/* Header row */}
-      <div className="flex items-start justify-between gap-3">
-        <span className="text-2xl leading-none" role="img" aria-label={project.country}>
-          {flag}
-        </span>
-        <span
-          className={`inline-flex items-center rounded-full px-2.5 py-0.5 text-[10px] font-medium tracking-wide ${regionStyle.bg} ${regionStyle.text}`}
-        >
-          {project.region}
-        </span>
-      </div>
-
-      {/* Project info */}
-      <div className="flex-1">
-        <p className="text-[11px] font-semibold tracking-wide text-zinc-400 uppercase">
-          {project.location}, {project.country}
-        </p>
-        <h3 className="mt-1 text-sm font-semibold leading-snug text-zinc-900">
-          {project.airport}
-        </h3>
-        <p className="mt-2 text-sm leading-relaxed text-zinc-500">
-          {project.scope}
-        </p>
-      </div>
-
-      {/* Footer */}
-      <div className="flex items-center justify-between border-t border-zinc-100 pt-4">
-        <div>
-          <p className="text-[11px] text-zinc-400">{project.period}</p>
-          <p className="text-xs font-medium text-zinc-600">{project.role}</p>
-        </div>
-        {project.client && (
-          <span className="rounded-md bg-zinc-50 px-2 py-1 text-[10px] font-medium text-zinc-500 ring-1 ring-zinc-200">
-            {project.client}
-          </span>
-        )}
-      </div>
-    </ScrollReveal>
-  )
-}
-
-// ─── Section ─────────────────────────────────────────────────────────────────
+// ─── Featured Projects section — homepage ─────────────────────────────────────
 
 export function FeaturedProjects() {
   return (
-    <section className="mx-auto max-w-5xl px-4 py-20 sm:px-8 sm:py-24">
-      {/* Heading */}
+    <section className="mx-auto max-w-7xl px-4 py-20 sm:px-8 sm:py-24">
+
+      {/* ── Heading ── */}
       <ScrollReveal className="mb-12 flex flex-col items-start gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <p
@@ -130,12 +35,27 @@ export function FeaturedProjects() {
         </Link>
       </ScrollReveal>
 
-      {/* Grid */}
+      {/* ── Cards ── */}
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {featuredProjects.map((project, i) => (
-          <ProjectCard key={project.id} project={project} index={i} />
+          <ScrollReveal key={project.id} delay={`${i * 0.09}s`}>
+            <ProjectCard project={project} showScope />
+          </ScrollReveal>
         ))}
       </div>
+
+      {/* ── Footer CTA ── */}
+      <ScrollReveal className="mt-10 text-center">
+        <Link
+          href="/projects"
+          className="inline-flex items-center gap-2 rounded-xl border border-zinc-200 bg-white px-6 py-3 text-sm font-semibold text-zinc-700 shadow-sm transition-all duration-200 hover:border-zinc-300 hover:shadow-md"
+        >
+          View all {featuredProjects.length > 0 ? '60+' : ''} projects
+          <svg viewBox="0 0 20 20" fill="currentColor" className="h-4 w-4 text-zinc-400">
+            <path fillRule="evenodd" d="M3 10a.75.75 0 0 1 .75-.75h10.638L10.23 5.29a.75.75 0 1 1 1.04-1.08l5.5 5.25a.75.75 0 0 1 0 1.08l-5.5 5.25a.75.75 0 1 1-1.04-1.08l4.158-3.96H3.75A.75.75 0 0 1 3 10Z" clipRule="evenodd"/>
+          </svg>
+        </Link>
+      </ScrollReveal>
     </section>
   )
 }
