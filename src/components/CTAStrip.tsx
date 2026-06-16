@@ -11,10 +11,7 @@ import { ScrollReveal } from '@/components/ScrollReveal'
 export function CTAStrip() {
   return (
     <section
-      className="relative mx-4 mb-8 overflow-hidden rounded-2xl sm:mx-8 sm:mb-12"
-      style={{
-        boxShadow: '0 24px 64px -12px rgba(11,30,61,0.22)',
-      }}
+      className="relative w-full overflow-hidden"
     >
       {/* Background image */}
       <div className="absolute inset-0">

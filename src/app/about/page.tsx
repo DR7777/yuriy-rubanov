@@ -55,8 +55,8 @@ const SKILLS = [
 export default function AboutPage() {
   return (
     <>
-      {/* ── Page hero ── */}
-      <div className="relative h-56 overflow-hidden sm:h-64 lg:h-72">
+      {/* ── Page hero — edge-to-edge, cancels the header spacer ── */}
+      <div className="relative -mt-24 h-80 overflow-hidden sm:h-[22rem] lg:h-[26rem]">
         <Image
           src={headerImage}
           alt="Aircraft ascending at sunset"

@@ -140,7 +140,7 @@ export default function ExpertisePage() {
     <>
       {/* ── Page header ── */}
       <div
-        className="relative py-20 sm:py-24"
+        className="relative -mt-24 py-36 sm:py-44"
         style={{ background: 'linear-gradient(135deg, #0B1E3D 0%, #1E3A5F 100%)' }}
       >
         {/* Subtle dot pattern */}

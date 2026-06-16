@@ -6,7 +6,6 @@ import { Layout } from '@/components/Layout'
 
 import '@/styles/tailwind.css'
 
-// Inter — clean, modern sans-serif for an executive aviation brand
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-display',
@@ -51,12 +50,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`h-full antialiased ${inter.variable}`}>
-      <body className="flex h-full bg-zinc-50">
+    // No h-full / bg-zinc-50 — full-width white, no centered card frame
+    <html lang="en" className={`antialiased ${inter.variable}`}>
+      <body className="bg-white text-zinc-900">
         <Providers>
-          <div className="flex w-full">
-            <Layout>{children}</Layout>
-          </div>
+          <Layout>{children}</Layout>
         </Providers>
       </body>
     </html>

@@ -28,7 +28,7 @@ export default function ProjectsPage() {
   return (
     <>
       {/* ── Hero banner ── */}
-      <div className="relative h-56 overflow-hidden sm:h-64 lg:h-72">
+      <div className="relative -mt-24 h-80 overflow-hidden sm:h-[22rem] lg:h-[26rem]">
         <Image
           src={headerImage}
           alt="Wide-body aircraft on taxiway in front of modern terminal"

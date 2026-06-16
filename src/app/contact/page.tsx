@@ -65,7 +65,7 @@ export default function ContactPage() {
   return (
     <>
       {/* ── Page header — lounge image ── */}
-      <div className="relative h-48 overflow-hidden sm:h-56">
+      <div className="relative -mt-24 h-72 overflow-hidden sm:h-80">
         <Image
           src={loungeImage}
           alt="Airport departure lounge with aircraft at gate"
