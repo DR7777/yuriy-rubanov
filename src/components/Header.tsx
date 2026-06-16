@@ -3,12 +3,6 @@
 import { useEffect, useRef, useState, useCallback } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import {
-  Popover,
-  PopoverButton,
-  PopoverBackdrop,
-  PopoverPanel,
-} from '@headlessui/react'
 import clsx from 'clsx'
 
 // ─── Nav data ─────────────────────────────────────────────────────────────────
@@ -116,129 +110,153 @@ function DesktopNav({ transparent }: { transparent: boolean }) {
   )
 }
 
-// ─── Mobile nav — popover "Menu ↓" ───────────────────────────────────────────
+// ─── Full-screen mobile overlay ───────────────────────────────────────────────
 
-function ChevronDownIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
-  return (
-    <svg viewBox="0 0 8 6" aria-hidden="true" {...props}>
-      <path d="M1.75 1.75 4 4.25l2.25-2.5" fill="none" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  )
-}
-
-function CloseIcon(props: React.ComponentPropsWithoutRef<'svg'>) {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" {...props}>
-      <path d="m17.25 6.75-10.5 10.5M6.75 6.75l10.5 10.5" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  )
-}
-
-function MobileNav({ transparent }: { transparent: boolean }) {
+function MobileOverlay({ open, onClose }: { open: boolean; onClose: () => void }) {
   const pathname = usePathname()
 
-  return (
-    <Popover className="md:hidden">
-      {/* Trigger */}
-      <PopoverButton
-        className={clsx(
-          'group flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium outline-none transition-colors duration-300',
-          transparent
-            ? 'text-white/85 hover:text-white'
-            : 'text-zinc-600 hover:text-zinc-900',
-        )}
-      >
-        Menu
-        <ChevronDownIcon
-          className={clsx(
-            'h-auto w-2 transition-all duration-300 group-data-open:rotate-180',
-            transparent ? 'stroke-white/70' : 'stroke-zinc-500',
-          )}
-        />
-      </PopoverButton>
+  // Close on route change
+  useEffect(() => { onClose() }, [pathname]) // eslint-disable-line react-hooks/exhaustive-deps
 
-      {/* Backdrop */}
-      <PopoverBackdrop
-        transition
-        className="fixed inset-0 z-40 bg-zinc-900/30 backdrop-blur-sm duration-200 data-closed:opacity-0 data-enter:ease-out data-leave:ease-in"
+  // Lock body scroll
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [open])
+
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label="Mobile navigation"
+      className={clsx(
+        'fixed inset-0 z-[200] transition-all duration-500',
+        open ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0',
+      )}
+      style={{ background: 'linear-gradient(150deg, #060f1f 0%, #0B1E3D 50%, #1a3460 100%)' }}
+    >
+      {/* Decorative grid */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.035]"
+        style={{
+          backgroundImage:
+            'repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(201,168,76,1) 60px, rgba(201,168,76,1) 61px),' +
+            'repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(201,168,76,1) 60px, rgba(201,168,76,1) 61px)',
+        }}
       />
 
-      {/* Panel */}
-      <PopoverPanel
-        focus
-        transition
-        className="absolute left-1/2 top-[calc(100%+0.75rem)] z-50 w-[calc(100vw-2rem)] max-w-sm -translate-x-1/2 origin-top overflow-hidden rounded-2xl shadow-2xl duration-200 data-closed:scale-95 data-closed:opacity-0 data-enter:ease-out data-leave:ease-in"
-        style={{ background: 'linear-gradient(150deg, #0a1628 0%, #0B1E3D 100%)' }}
-      >
-        {/* Gold top accent */}
-        <div className="h-[2px] w-full" style={{ background: 'linear-gradient(90deg, transparent, #C9A84C, #D4AF37, transparent)' }} />
+      {/* Radial glow */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{ background: 'radial-gradient(ellipse 70% 60% at 20% 50%, rgba(201,168,76,0.07) 0%, transparent 70%)' }}
+      />
 
-        {/* Header row */}
-        <div className="flex items-center justify-between px-5 py-4">
-          <div className="flex items-center gap-2.5">
-            <div
-              className="flex h-8 w-8 items-center justify-center rounded-md text-xs font-bold text-white"
-              style={{ background: 'rgba(201,168,76,0.15)', border: '1px solid rgba(201,168,76,0.30)' }}
-            >
-              R<span style={{ color: '#C9A84C' }}>A</span>C
-            </div>
-            <span className="text-sm font-semibold text-white">Rubanov Airport Consulting</span>
+      {/* Close button */}
+      <button
+        onClick={onClose}
+        aria-label="Close menu"
+        className="absolute right-5 top-5 flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/50 transition duration-200 hover:border-white/30 hover:text-white sm:right-8 sm:top-8"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" className="h-5 w-5">
+          <path d="M18 6 6 18M6 6l12 12" />
+        </svg>
+      </button>
+
+      {/* Content */}
+      <div className="flex h-full flex-col justify-center px-8 sm:px-16">
+
+        {/* Logo */}
+        <div
+          className="mb-10 flex items-center gap-4 transition-all duration-500"
+          style={{ transitionDelay: open ? '0.05s' : '0s', opacity: open ? 1 : 0, transform: open ? 'none' : 'translateY(-12px)' }}
+        >
+          <div
+            className="flex h-12 w-12 items-center justify-center rounded-xl text-base font-bold text-white"
+            style={{ background: 'rgba(201,168,76,0.12)', border: '1px solid rgba(201,168,76,0.30)' }}
+          >
+            R<span style={{ color: '#C9A84C' }}>A</span>C
           </div>
-          <PopoverButton aria-label="Close menu" className="-mr-1 rounded-lg p-1.5 text-white/40 transition hover:text-white">
-            <CloseIcon className="h-4 w-4" />
-          </PopoverButton>
+          <div>
+            <p className="text-[17px] font-semibold text-white">Rubanov Airport</p>
+            <p className="text-[10px] font-medium tracking-[0.22em] uppercase" style={{ color: '#C9A84C' }}>
+              Consulting
+            </p>
+          </div>
         </div>
 
-        {/* Divider */}
-        <div className="mx-5 h-px bg-white/8" />
+        {/* Gold accent line */}
+        <div
+          className="mb-10 h-px transition-all duration-700"
+          style={{
+            transitionDelay: open ? '0.10s' : '0s',
+            opacity: open ? 1 : 0,
+            width: open ? '180px' : '0px',
+            background: 'linear-gradient(90deg, #C9A84C, #D4AF37 60%, transparent)',
+          }}
+        />
 
-        {/* Nav links */}
-        <nav className="p-2">
+        {/* Nav items */}
+        <nav>
           <ul className="flex flex-col">
             {NAV_LINKS.map(({ href, label }, i) => {
               const isActive = pathname === href
               return (
-                <li key={href}>
-                  <PopoverButton
-                    as={Link}
+                <li
+                  key={href}
+                  className="transition-all duration-500"
+                  style={{
+                    transitionDelay: open ? `${0.13 + i * 0.07}s` : '0s',
+                    opacity: open ? 1 : 0,
+                    transform: open ? 'none' : 'translateX(-24px)',
+                  }}
+                >
+                  <Link
                     href={href}
+                    onClick={onClose}
                     className={clsx(
-                      'flex items-center justify-between rounded-xl px-4 py-3 text-sm font-medium transition-colors duration-150',
-                      isActive
-                        ? 'text-[#C9A84C]'
-                        : 'text-white/65 hover:bg-white/6 hover:text-white',
+                      'group flex items-center gap-5 py-3.5 transition-all duration-200',
+                      isActive ? 'text-[#C9A84C]' : 'text-white/65 hover:text-white',
                     )}
                   >
-                    <span className="flex items-center gap-3">
-                      <span className="text-[10px] tabular-nums text-white/20">0{i + 1}</span>
-                      {label}
+                    <span className="w-6 text-right text-xs font-semibold tabular-nums"
+                      style={{ color: isActive ? '#C9A84C' : 'rgba(255,255,255,0.20)' }}>
+                      0{i + 1}
                     </span>
-                    {isActive && (
-                      <span className="h-1.5 w-1.5 rounded-full" style={{ background: '#C9A84C' }} />
-                    )}
-                  </PopoverButton>
+                    <span className="h-px w-5 flex-shrink-0"
+                      style={{ background: isActive ? '#C9A84C' : 'rgba(255,255,255,0.18)' }} />
+                    <span className="text-3xl font-bold tracking-tight sm:text-4xl">{label}</span>
+                  </Link>
                 </li>
               )
             })}
           </ul>
         </nav>
 
-        {/* Footer */}
-        <div className="mx-5 mb-4 mt-1 rounded-xl p-4" style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.07)' }}>
-          <PopoverButton
-            as={Link}
-            href="/contact"
-            className="flex w-full items-center justify-center gap-2 rounded-lg py-2.5 text-sm font-semibold text-white transition hover:opacity-90"
-            style={{ background: 'linear-gradient(135deg, #C9A84C 0%, #D4AF37 100%)' }}
-          >
-            Get in Touch
-          </PopoverButton>
-          <p className="mt-3 text-center text-[10px] text-white/25">
-            yuriy@rubanov.com · Vienna, Austria
-          </p>
+        {/* Bottom contact strip */}
+        <div
+          className="mt-10 transition-all duration-500"
+          style={{ transitionDelay: open ? '0.55s' : '0s', opacity: open ? 1 : 0, transform: open ? 'none' : 'translateY(12px)' }}
+        >
+          <div className="mb-6 h-px w-full bg-white/8" />
+          <div className="flex items-center justify-between">
+            <div>
+              <a href="mailto:yuriy@rubanov.com" className="block text-sm text-white/45 transition hover:text-white/75">
+                yuriy@rubanov.com
+              </a>
+              <p className="mt-0.5 text-xs text-white/25">Vienna, Austria</p>
+            </div>
+            <Link
+              href="/contact"
+              onClick={onClose}
+              className="rounded-xl px-5 py-2.5 text-sm font-semibold text-white transition hover:opacity-90"
+              style={{ background: 'linear-gradient(135deg, #C9A84C 0%, #D4AF37 100%)', boxShadow: '0 4px 16px rgba(201,168,76,0.30)' }}
+            >
+              Get in Touch
+            </Link>
+          </div>
         </div>
-      </PopoverPanel>
-    </Popover>
+      </div>
+    </div>
   )
 }
 
@@ -246,6 +264,7 @@ function MobileNav({ transparent }: { transparent: boolean }) {
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false)
+  const [mobileOpen, setMobileOpen] = useState(false)
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 72)
@@ -263,7 +282,7 @@ export function Header() {
         style={{ animation: 'slide-down 0.7s cubic-bezier(0.22,1,0.36,1) both' }}
       >
         <div
-          className="mt-4 flex w-full max-w-5xl items-center rounded-2xl px-3 py-2 sm:px-4 sm:py-2.5 mx-3 sm:mx-8 transition-all duration-500"
+          className="mt-4 mx-3 flex w-full max-w-5xl items-center rounded-2xl px-3 py-2 sm:mx-8 sm:px-4 sm:py-2.5 transition-all duration-500"
           style={{
             background: transparent ? 'rgba(8, 20, 50, 0.28)' : 'rgba(255, 255, 255, 0.88)',
             backdropFilter: transparent ? 'blur(6px)' : 'blur(24px)',
@@ -277,14 +296,43 @@ export function Header() {
           {/* Logo */}
           <RacLogo transparent={transparent} />
 
-          {/* Desktop nav */}
+          {/* Desktop nav — hidden on mobile */}
           <DesktopNav transparent={transparent} />
 
-          {/* Right: mobile popover + desktop CTA */}
-          <div className="flex flex-shrink-0 items-center gap-2">
+          {/* Mobile: "Menu ↓" centered — hidden on desktop */}
+          <div className="flex flex-1 justify-center md:hidden">
+            <button
+              onClick={() => setMobileOpen(true)}
+              aria-label="Open menu"
+              aria-expanded={mobileOpen}
+              className={clsx(
+                'group flex items-center gap-1.5 rounded-lg px-3 py-2 text-sm font-medium transition-colors duration-300',
+                transparent ? 'text-white/85 hover:text-white' : 'text-zinc-600 hover:text-zinc-900',
+              )}
+            >
+              Menu
+              <svg
+                viewBox="0 0 8 6"
+                aria-hidden="true"
+                className={clsx(
+                  'h-auto w-2 transition-colors duration-300',
+                  transparent ? 'stroke-white/70' : 'stroke-zinc-500',
+                )}
+                fill="none"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M1.75 1.75 4 4.25l2.25-2.5" />
+              </svg>
+            </button>
+          </div>
+
+          {/* CTA button — desktop only */}
+          <div className="hidden flex-shrink-0 md:flex">
             <Link
               href="/contact"
-              className="hidden sm:inline-flex items-center rounded-lg px-4 py-2 text-xs font-semibold tracking-wide text-white transition-all duration-200 hover:scale-[1.04] hover:opacity-90 active:scale-[0.96] md:inline-flex"
+              className="inline-flex items-center rounded-lg px-4 py-2 text-xs font-semibold tracking-wide text-white transition-all duration-200 hover:scale-[1.04] hover:opacity-90 active:scale-[0.96]"
               style={{
                 background: 'linear-gradient(135deg, #C9A84C 0%, #D4AF37 100%)',
                 boxShadow: '0 2px 12px rgba(201,168,76,0.40)',
@@ -292,14 +340,14 @@ export function Header() {
             >
               Get in Touch
             </Link>
-
-            {/* Mobile popover trigger sits here */}
-            <MobileNav transparent={transparent} />
           </div>
         </div>
       </header>
 
-      {/* In-flow spacer — hero uses -mt-24 to cancel this */}
+      {/* Full-screen mobile overlay */}
+      <MobileOverlay open={mobileOpen} onClose={() => setMobileOpen(false)} />
+
+      {/* In-flow spacer — hero cancels with -mt-24 */}
       <div className="h-24" aria-hidden="true" />
     </>
   )
