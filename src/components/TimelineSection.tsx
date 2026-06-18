@@ -4,7 +4,7 @@ import { ScrollReveal } from '@/components/ScrollReveal'
 
 const TIMELINE = [
   {
-    period: '2025 – Present',
+    period: '2026 – Present',
     role: 'Independent Airport Consultant',
     org: 'Rubanov Airport Consulting',
     location: 'Vienna, Austria',
@@ -14,12 +14,12 @@ const TIMELINE = [
     type: 'current',
   },
   {
-    period: '2000 – 2025',
+    period: '2000 – 2026',
     role: 'Manager Central & Eastern Europe',
     org: 'Airport Competence GmbH',
     location: 'Vienna, Austria',
     description:
-      'Over 25 years as senior manager and lead expert at one of Europe\'s leading airport consultancies (formerly Airport Consulting Vienna GmbH). Led projects across CIS, Eastern Europe and globally for clients including World Bank, EBRD, IFC and TACIS.',
+      'Over 26 years as senior manager and lead expert at one of Europe\'s leading airport consultancies (formerly Airport Consulting Vienna GmbH). Led projects across CIS, Eastern Europe and globally for clients including World Bank, EBRD, IFC and TACIS.',
     highlight: false,
     type: 'work',
   },

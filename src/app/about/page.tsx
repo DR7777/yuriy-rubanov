@@ -142,7 +142,7 @@ export default function AboutPage() {
                 financial institutions and private investors.
               </p>
               <p>
-                In 2025, Yuriy launched <strong className="text-zinc-800">Rubanov Airport Consulting</strong>, bringing
+                In 2026, Yuriy launched <strong className="text-zinc-800">Rubanov Airport Consulting</strong>, bringing
                 the same rigour, depth and global network to independent project-based
                 engagements, expert review mandates and long-term advisory roles.
               </p>
